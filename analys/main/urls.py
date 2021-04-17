@@ -31,6 +31,8 @@ from .views import (
     EigthNumYear,
     NineNumYear,
     TenNumYear,
+
+    FinalDataJson,
 )
 
 urlpatterns = [
@@ -42,6 +44,8 @@ urlpatterns = [
     path('heat/tendency/', ProficitDeficitHeatMap.as_view()),
     
     path('regions/', RegionDetailed.as_view()),
+
+    path('regdata/', FinalDataJson.as_view()),
 
     path('y1/', FirstYear.as_view()),
     path('y2/', SecondYear.as_view()),
