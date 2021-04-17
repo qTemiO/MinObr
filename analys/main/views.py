@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import JsonResponse
 
 from rest_framework import generics
 from rest_framework.renderers import JSONRenderer
@@ -499,345 +500,515 @@ class RegionDetailed(APIView):
 
     def get(self, request):
         data = {
-            {
-                'name': 'Россия',
-                'data': {'def_prof': -55352, 'vipusk': 49652, 'vacansy': 105004}
-            },
-            {
-                'name': 'Москва',
-                'data': {'def_prof': -15972, 'vipusk': 19843, 'vacansy': 35815}
-            },
-            {
-                'name': 'Санкт-Петербург',
-                'data': {'def_prof': -8644, 'vipusk': 4337, 'vacansy': 12981}
-            },
-            {
-                'name': 'Новосибирская область',
-                'data': {'def_prof': -2684, 'vipusk': 958, 'vacansy': 3642}
-            },
-            {
-                'name': 'Свердловская область',
-                'data': {'def_prof': -2689, 'vipusk': 840, 'vacansy': 3529}
-            },
-            {
-                'name': 'Краснодарский край',
-                'data': {'def_prof': -2881, 'vipusk': 522, 'vacansy': 3403}
-            },
-            {
-                'name': 'Республика Татарстан ',
-                'data': {'def_prof': -2477, 'vipusk': 867, 'vacansy': 3344}
-            },
-            {
-                'name': 'Московская область',
-                'data': {'def_prof': -2001, 'vipusk': 759, 'vacansy': 2760}
-            },
-            {
-                'name': 'Нижегородская область',
-                'data': {'def_prof': -2050, 'vipusk': 678, 'vacansy': 2728}
-            },
-            {
-                'name': 'Ростовская область',
-                'data': {'def_prof': -1180, 'vipusk': 1315, 'vacansy': 2495}
-            },
-            {
-                'name': 'Самарская область',
-                'data': {'def_prof': -970, 'vipusk': 1257, 'vacansy': 2227}
-            },
-            {
-                'name': 'Воронеж область',
-                'data': {'def_prof': -1058, 'vipusk': 931, 'vacansy': 1989}
-            },
-            {
-                'name': 'Пермский край ',
-                'data': {'def_prof': -1121, 'vipusk': 460, 'vacansy': 1581}
-            },
-            {
-                'name': 'Челябинская область',
-                'data': {'def_prof': -566, 'vipusk': 848, 'vacansy': 1414}
-            },
-            {
-                'name': 'Республика Башкортостан',
-                'data': {'def_prof': -140, 'vipusk': 1269, 'vacansy': 1409}
-            },
-            {
-                'name': 'Саратовская область',
-                'data': {'def_prof': -479, 'vipusk': 626, 'vacansy': 1105}
-            },
-            {
-                'name': 'Красноярский край',
-                'data': {'def_prof': -603, 'vipusk': 492, 'vacansy': 1095}
-            },
-            {
-                'name': 'Волгоградская область',
-                'data': {'def_prof': -732, 'vipusk': 237, 'vacansy': 969}
-            },
-            {
-                'name': 'Приморский край',
-                'data': {'def_prof': -458, 'vipusk': 353, 'vacansy': 811}
-            },
-            {
-                'name': 'Томская область',
-                'data': {'def_prof': -410, 'vipusk': 399, 'vacansy': 809}
-            },
-            {
-                'name': 'Удмурская республика',
-                'data': {'def_prof': -541, 'vipusk': 266, 'vacansy': 807}
-            },
-            {
-                'name': 'Ярославская область',
-                'data': {'def_prof': -590, 'vipusk': 217, 'vacansy': 807}
-            },
-            {
-                'name': 'Омская область',
-                'data': {'def_prof': -352, 'vipusk': 448, 'vacansy': 800}
-            },
-            {
-                'name': 'Тюменская область',
-                'data': {'def_prof': -619, 'vipusk': 169, 'vacansy': 788}
-            },
-            {
-                'name': 'Иркутская область',
-                'data': {'def_prof': -454, 'vipusk': 326, 'vacansy': 780}
-            },
-            {
-                'name': 'Ульяновская область',
-                'data': {'def_prof': -616, 'vipusk': 128, 'vacansy': 744}
-            },
-            {
-                'name': 'Кемеровская область',
-                'data': {'def_prof': -339, 'vipusk': 400, 'vacansy': 739}
-            },
-            {
-                'name': 'Тульская область',
-                'data': {'def_prof': -459, 'vipusk': 250, 'vacansy': 709}
-            },
-            {
-                'name': 'Алтайский край',
-                'data': {'def_prof': -121, 'vipusk': 545, 'vacansy': 666}
-            },
-            {
-                'name': 'Ставропольский край',
-                'data': {'def_prof': -327, 'vipusk': 319, 'vacansy': 646}
-            },
-            {
-                'name': 'Республика Крым',
-                'data': {'def_prof': -354, 'vipusk': 220, 'vacansy': 574}
-            },
-            {
-                'name': 'Калининградская область',
-                'data': {'def_prof': -242, 'vipusk': 325, 'vacansy': 567}
-            },
-            {
-                'name': 'Тверская область',
-                'data': {'def_prof': -461, 'vipusk': 93, 'vacansy': 554}
-            },
-            {
-                'name': 'Пензенская область',
-                'data': {'def_prof': 205, 'vipusk': 732, 'vacansy': 527}
-            },
-            {
-                'name': 'Владимирская область',
-                'data': {'def_prof': -248, 'vipusk': 277, 'vacansy': 525}
-            },
-            {
-                'name': 'Рязанская область',
-                'data': {'def_prof': -468, 'vipusk': 46, 'vacansy': 514}
-            },
-            {
-                'name': 'Хабаровкий край',
-                'data': {'def_prof': -385, 'vipusk': 116, 'vacansy': 501}
-            },
-            {
-                'name': 'Белгородская область',
-                'data': {'def_prof': -345, 'vipusk': 152, 'vacansy': 497}
-            },
-            {
-                'name': 'Калужская область',
-                'data': {'def_prof': -434, 'vipusk': 57, 'vacansy': 491}
-            },
-            {
-                'name': 'Чувашская Республика',
-                'data': {'def_prof': -237, 'vipusk': 243, 'vacansy': 480}
-            },
-            {
-                'name': 'Кировская область',
-                'data': {'def_prof': -214, 'vipusk': 257, 'vacansy': 471}
-            },
-            {
-                'name': 'Оренбургская область',
-                'data': {'def_prof': -123, 'vipusk': 326, 'vacansy': 449}
-            },
-            {
-                'name': 'Вологодская область',
-                'data': {'def_prof': -247, 'vipusk': 181, 'vacansy': 428}
-            },
-            {
-                'name': 'Ханты-Мансийский Автономный округ',
-                'data': {'def_prof': -167, 'vipusk': 197, 'vacansy': 364}
-            },
-            {
-                'name': 'Липецкая область',
-                'data': {'def_prof': -292, 'vipusk': 64, 'vacansy': 356}
-            },
-            {
-                'name': 'Ивановская область',
-                'data': {'def_prof': -159, 'vipusk': 182, 'vacansy': 341}
-            },
-            {
-                'name': 'Курская область',
-                'data': {'def_prof': 108, 'vipusk': 439, 'vacansy': 331}
-            },
-            {
-                'name': 'Харьковская область',
-                'data': {'def_prof': -158, 'vipusk': 157, 'vacansy': 315}
-            },
-            {
-                'name': 'Ленинградская область',
-                'data': {'def_prof': -88, 'vipusk': 215, 'vacansy': 303}
-            },
-            {
-                'name': 'Смоленская область',
-                'data': {'def_prof': -143, 'vipusk': 147, 'vacansy': 290}
-            },
-            {
-                'name': 'Брянская область',
-                'data': {'def_prof': 52, 'vipusk': 339, 'vacansy': 287}
-            },
-            {
-                'name': 'Республика Марий Эл',
-                'data': {'def_prof': -46, 'vipusk': 221, 'vacansy': 267}
-            },
-            {
-                'name': 'Тамбовская область',
-                'data': {'def_prof': 17, 'vipusk': 275, 'vacansy': 258}
-            },
-            {
-                'name': 'Орловская область',
-                'data': {'def_prof': 54, 'vipusk': 310, 'vacansy': 256}
-            },
-            {
-                'name': 'Костромская область',
-                'data': {'def_prof': -128, 'vipusk': 111, 'vacansy': 239}
-            },
-            {
-                'name': 'Республика Мордовия',
-                'data': {'def_prof': -42, 'vipusk': 182, 'vacansy': 224}
-            },
-            {
-                'name': 'Архангельская область',
-                'data': {'def_prof': 8, 'vipusk': 226, 'vacansy': 218}
-            },
-            {
-                'name': 'Астраханская область',
-                'data': {'def_prof': -41, 'vipusk': 164, 'vacansy': 205}
-            },
-            {
-                'name': 'Республика Дагестан',
-                'data': {'def_prof': 135, 'vipusk': 317, 'vacansy': 182}
-            },
-            {
-                'name': 'Курганская область',
-                'data': {'def_prof': -120, 'vipusk': 60, 'vacansy': 180}
-            },
-            {
-                'name': 'Амурская область',
-                'data': {'def_prof': -80, 'vipusk': 83, 'vacansy': 163}
-            },
-            {
-                'name': 'Новгородская область',
-                'data': {'def_prof': -134, 'vipusk': 28, 'vacansy': 162}
-            },
-            {
-                'name': 'Мурманская область',
-                'data': {'def_prof': -34, 'vipusk': 128, 'vacansy': 162}
-            },
-            {
-                'name': 'Ямало-Ненецкий АО',
-                'data': {'def_prof': 214, 'vipusk': 376, 'vacansy': 162}
-            },
-            {
-                'name': 'Республика Карелия ',
-                'data': {'def_prof': 287, 'vipusk': 444, 'vacansy': 157}
-            },
-            {
-                'name': 'Республика Коми',
-                'data': {'def_prof': -28, 'vipusk': 125, 'vacansy': 153}
-            },
-            {
-                'name': 'Псковская область',
-                'data': {'def_prof': -45, 'vipusk': 96, 'vacansy': 141}
-            },
-            {
-                'name': 'Республика Бурятия',
-                'data': {'def_prof': 139, 'vipusk': 280, 'vacansy': 141}
-            },
-            {
-                'name': 'Республика Саха',
-                'data': {'def_prof': 8, 'vipusk': 127, 'vacansy': 119}
-            },
-            {
-                'name': 'Забайкальский край',
-                'data': {'def_prof': -43, 'vipusk': 68, 'vacansy': 111}
-            },
-            {
-                'name': 'Республика Хакасия',
-                'data': {'def_prof': -55, 'vipusk': 55, 'vacansy': 110}
-            },
-            {
-                'name': 'Сахалинская область',
-                'data': {'def_prof': -69, 'vipusk': 20, 'vacansy': 89}
-            },
-            {
-                'name': 'Камчатский край',
-                'data': {'def_prof': -65, 'vipusk': 13, 'vacansy': 78}
-            },
-            {
-                'name': 'Республика Кабардино-Балкария ',
-                'data': {'def_prof': 136, 'vipusk': 207, 'vacansy': 71}
-            },
-            {
-                'name': 'Республика Северная Осетия - Аланяи ',
-                'data': {'def_prof': -7, 'vipusk': 61, 'vacansy': 68}
-            },
-            {
-                'name': 'Чеченская республика',
-                'data': {'def_prof': -12, 'vipusk': 43, 'vacansy': 55}
-            },
-            {
-                'name': 'Республикаа Карачаево-Черкесия ',
-                'data': {'def_prof': 156, 'vipusk': 206, 'vacansy': 50}
-            },
-            {
-                'name': 'Республика Адыгея',
-                'data': {'def_prof': 127, 'vipusk': 175, 'vacansy': 48}
-            },
-            {
-                'name': 'Республика Калмыкия',
-                'data': {'def_prof': -27, 'vipusk': 21, 'vacansy': 48}
-            },
-            {
-                'name': 'Республика Тыва ',
-                'data': {'def_prof': -28, 'vipusk': 12, 'vacansy': 40}
-            },
-            {
-                'name': 'Магаданская область',
-                'data': {'def_prof': -15, 'vipusk': 18, 'vacansy': 33}
-            },
-            {
-                'name': 'Республика Ингушетия ',
-                'data': {'def_prof': 34, 'vipusk': 55, 'vacansy': 21}
-            },
-            {
-                'name': 'Республика Алтай',
-                'data': {'def_prof': -1, 'vipusk': 18, 'vacansy': 19}
-            },
-            {
-                'name': 'Еврейская автономная область',
-                'data': {'def_prof': 35, 'vipusk': 52, 'vacansy': 17}
-            },
-            {
-                'name': 'Севастопольский регион ',
-                'data': {'def_prof': 251, 'vipusk': 251, 'vacansy': 0}
+            0: {
+                "name": "Россия",
+                "def_prof": -55352,
+                "vipusk": 49652,
+                "vacansy": 105004
+            },
+            1: {
+                "name": "Москва",
+                "def_prof": -15972,
+                "vipusk": 19843,
+                "vacansy": 35815
+            },
+            2: {
+                "name": "Санкт-Петербург",
+                "def_prof": -8644,
+                "vipusk": 4337,
+                "vacansy": 12981
+            },
+            3: {
+                "name": "Новосибирская область",
+                "def_prof": -2684,
+                "vipusk": 958,
+                "vacansy": 3642
+            },
+            4: {
+                "name": "Свердловская область",
+                "def_prof": -2689,
+                "vipusk": 840,
+                "vacansy": 3529
+            },
+            5: {
+                "name": "Краснодарский край",
+                "def_prof": -2881,
+                "vipusk": 522,
+                "vacansy": 3403
+            },
+            6: {
+                "name": "Республика Татарстан ",
+                "def_prof": -2477,
+                "vipusk": 867,
+                "vacansy": 3344
+            },
+            7: {
+                "name": "Московская область",
+                "def_prof": -2001,
+                "vipusk": 759,
+                "vacansy": 2760
+            },
+            8: {
+                "name": "Нижегородская область",
+                "def_prof": -2050,
+                "vipusk": 678,
+                "vacansy": 2728
+            },
+            9: {
+                "name": "Ростовская область",
+                "def_prof": -1180,
+                "vipusk": 1315,
+                "vacansy": 2495
+            },
+            10: {
+                "name": "Самарская область",
+                "def_prof": -970,
+                "vipusk": 1257,
+                "vacansy": 2227
+            },
+            11: {
+                "name": "Воронеж область",
+                "def_prof": -1058,
+                "vipusk": 931,
+                "vacansy": 1989
+            },
+            12: {
+                "name": "Пермский край ",
+                "def_prof": -1121,
+                "vipusk": 460,
+                "vacansy": 1581
+            },
+            13: {
+                "name": "Челябинская область",
+                "def_prof": -566,
+                "vipusk": 848,
+                "vacansy": 1414
+            },
+            14: {
+                "name": "Республика Башкортостан",
+                "def_prof": -140,
+                "vipusk": 1269,
+                "vacansy": 1409
+            },
+            15: {
+                "name": "Саратовская область",
+                "def_prof": -479,
+                "vipusk": 626,
+                "vacansy": 1105
+            },
+            16: {
+                "name": "Красноярский край",
+                "def_prof": -603,
+                "vipusk": 492,
+                "vacansy": 1095
+            },
+            17: {
+                "name": "Волгоградская область",
+                "def_prof": -732,
+                "vipusk": 237,
+                "vacansy": 969
+            },
+            18: {
+                "name": "Приморский край",
+                "def_prof": -458,
+                "vipusk": 353,
+                "vacansy": 811
+            },
+            19: {
+                "name": "Томская область",
+                "def_prof": -410,
+                "vipusk": 399,
+                "vacansy": 809
+            },
+            20: {
+                "name": "Удмурская республика",
+                "def_prof": -541,
+                "vipusk": 266,
+                "vacansy": 807
+            },
+            21: {
+                "name": "Ярославская область",
+                "def_prof": -590,
+                "vipusk": 217,
+                "vacansy": 807
+            },
+            22: {
+                "name": "Омская область",
+                "def_prof": -352,
+                "vipusk": 448,
+                "vacansy": 800
+            },
+            23: {
+                "name": "Тюменская область",
+                "def_prof": -619,
+                "vipusk": 169,
+                "vacansy": 788
+            },
+            24: {
+                "name": "Иркутская область",
+                "def_prof": -454,
+                "vipusk": 326,
+                "vacansy": 780
+            },
+            25: {
+                "name": "Ульяновская область",
+                "def_prof": -616,
+                "vipusk": 128,
+                "vacansy": 744
+            },
+            26: {
+                "name": "Кемеровская область",
+                "def_prof": -339,
+                "vipusk": 400,
+                "vacansy": 739
+            },
+            27: {
+                "name": "Тульская область",
+                "def_prof": -459,
+                "vipusk": 250,
+                "vacansy": 709
+            },
+            28: {
+                "name": "Алтайский край",
+                "def_prof": -121,
+                "vipusk": 545,
+                "vacansy": 666
+            },
+            29: {
+                "name": "Ставропольский край",
+                "def_prof": -327,
+                "vipusk": 319,
+                "vacansy": 646
+            },
+            30: {
+                "name": "Республика Крым",
+                "def_prof": -354,
+                "vipusk": 220,
+                "vacansy": 574
+            },
+            31: {
+                "name": "Калининградская область",
+                "def_prof": -242,
+                "vipusk": 325,
+                "vacansy": 567
+            },
+            32: {
+                "name": "Тверская область",
+                "def_prof": -461,
+                "vipusk": 93,
+                "vacansy": 554
+            },
+            33: {
+                "name": "Пензенская область",
+                "def_prof": 205,
+                "vipusk": 732,
+                "vacansy": 527
+            },
+            34: {
+                "name": "Владимирская область",
+                "def_prof": -248,
+                "vipusk": 277,
+                "vacansy": 525
+            },
+            35: {
+                "name": "Рязанская область",
+                "def_prof": -468,
+                "vipusk": 46,
+                "vacansy": 514
+            },
+            36: {
+                "name": "Хабаровкий край",
+                "def_prof": -385,
+                "vipusk": 116,
+                "vacansy": 501
+            },
+            37: {
+                "name": "Белгородская область",
+                "def_prof": -345,
+                "vipusk": 152,
+                "vacansy": 497
+            },
+            38: {
+                "name": "Калужская область",
+                "def_prof": -434,
+                "vipusk": 57,
+                "vacansy": 491
+            },
+            39: {
+                "name": "Чувашская Республика",
+                "def_prof": -237,
+                "vipusk": 243,
+                "vacansy": 480
+            },
+            40: {
+                "name": "Кировская область",
+                "def_prof": -214,
+                "vipusk": 257,
+                "vacansy": 471
+            },
+            41: {
+                "name": "Оренбургская область",
+                "def_prof": -123,
+                "vipusk": 326,
+                "vacansy": 449
+            },
+            42: {
+                "name": "Вологодская область",
+                "def_prof": -247,
+                "vipusk": 181,
+                "vacansy": 428
+            },
+            43: {
+                "name": "Ханты-Мансийский Автономный округ",
+                "def_prof": -167,
+                "vipusk": 197,
+                "vacansy": 364
+            },
+            44: {
+                "name": "Липецкая область",
+                "def_prof": -292,
+                "vipusk": 64,
+                "vacansy": 356
+            },
+            45: {
+                "name": "Ивановская область",
+                "def_prof": -159,
+                "vipusk": 182,
+                "vacansy": 341
+            },
+            46: {
+                "name": "Курская область",
+                "def_prof": 108,
+                "vipusk": 439,
+                "vacansy": 331
+            },
+            47: {
+                "name": "Харьковская область",
+                "def_prof": -158,
+                "vipusk": 157,
+                "vacansy": 315
+            },
+            48: {
+                "name": "Ленинградская область",
+                "def_prof": -88,
+                "vipusk": 215,
+                "vacansy": 303
+            },
+            49: {
+                "name": "Смоленская область",
+                "def_prof": -143,
+                "vipusk": 147,
+                "vacansy": 290
+            },
+            50: {
+                "name": "Брянская область",
+                "def_prof": 52,
+                "vipusk": 339,
+                "vacansy": 287
+            },
+            51: {
+                "name": "Республика Марий Эл",
+                "def_prof": -46,
+                "vipusk": 221,
+                "vacansy": 267
+            },
+            52: {
+                "name": "Тамбовская область",
+                "def_prof": 17,
+                "vipusk": 275,
+                "vacansy": 258
+            },
+            53: {
+                "name": "Орловская область",
+                "def_prof": 54,
+                "vipusk": 310,
+                "vacansy": 256
+            },
+            54: {
+                "name": "Костромская область",
+                "def_prof": -128,
+                "vipusk": 111,
+                "vacansy": 239
+            },
+            55: {
+                "name": "Республика Мордовия",
+                "def_prof": -42,
+                "vipusk": 182,
+                "vacansy": 224
+            },
+            56: {
+                "name": "Архангельская область",
+                "def_prof": 8,
+                "vipusk": 226,
+                "vacansy": 218
+            },
+            57: {
+                "name": "Астраханская область",
+                "def_prof": -41,
+                "vipusk": 164,
+                "vacansy": 205
+            },
+            58: {
+                "name": "Республика Дагестан",
+                "def_prof": 135,
+                "vipusk": 317,
+                "vacansy": 182
+            },
+            59: {
+                "name": "Курганская область",
+                "def_prof": -120,
+                "vipusk": 60,
+                "vacansy": 180
+            },
+            60: {
+                "name": "Амурская область",
+                "def_prof": -80,
+                "vipusk": 83,
+                "vacansy": 163
+            },
+            61: {
+                "name": "Новгородская область",
+                "def_prof": -134,
+                "vipusk": 28,
+                "vacansy": 162
+            },
+            62: {
+                "name": "Мурманская область",
+                "def_prof": -34,
+                "vipusk": 128,
+                "vacansy": 162
+            },
+            63: {
+                "name": "Ямало-Ненецкий АО",
+                "def_prof": 214,
+                "vipusk": 376,
+                "vacansy": 162
+            },
+            64: {
+                "name": "Республика Карелия ",
+                "def_prof": 287,
+                "vipusk": 444,
+                "vacansy": 157
+            },
+            65: {
+                "name": "Республика Коми",
+                "def_prof": -28,
+                "vipusk": 125,
+                "vacansy": 153
+            },
+            66: {
+                "name": "Псковская область",
+                "def_prof": -45,
+                "vipusk": 96,
+                "vacansy": 141
+            },
+            67: {
+                "name": "Республика Бурятия",
+                "def_prof": 139,
+                "vipusk": 280,
+                "vacansy": 141
+            },
+            68: {
+                "name": "Республика Саха",
+                "def_prof": 8,
+                "vipusk": 127,
+                "vacansy": 119
+            },
+            69: {
+                "name": "Забайкальский край",
+                "def_prof": -43,
+                "vipusk": 68,
+                "vacansy": 111
+            },
+            70: {
+                "name": "Республика Хакасия",
+                "def_prof": -55,
+                "vipusk": 55,
+                "vacansy": 110
+            },
+            71: {
+                "name": "Сахалинская область",
+                "def_prof": -69,
+                "vipusk": 20,
+                "vacansy": 89
+            },
+            72: {
+                "name": "Камчатский край",
+                "def_prof": -65,
+                "vipusk": 13,
+                "vacansy": 78
+            },
+            73: {
+                "name": "Республика Кабардино-Балкария ",
+                "def_prof": 136,
+                "vipusk": 207,
+                "vacansy": 71
+            },
+            74: {
+                "name": "Республика Северная Осетия - Аланяи ",
+                "def_prof": -7,
+                "vipusk": 61,
+                "vacansy": 68
+            },
+            75: {
+                "name": "Чеченская республика",
+                "def_prof": -12,
+                "vipusk": 43,
+                "vacansy": 55
+            },
+            76: {
+                "name": "Республикаа Карачаево-Черкесия ",
+                "def_prof": 156,
+                "vipusk": 206,
+                "vacansy": 50
+            },
+            77: {
+                "name": "Республика Адыгея",
+                "def_prof": 127,
+                "vipusk": 175,
+                "vacansy": 48
+            },
+            78: {
+                "name": "Республика Калмыкия",
+                "def_prof": -27,
+                "vipusk": 21,
+                "vacansy": 48
+            },
+            79: {
+                "name": "Республика Тыва ",
+                "def_prof": -28,
+                "vipusk": 12,
+                "vacansy": 40
+            },
+            80: {
+                "name": "Магаданская область",
+                "def_prof": -15,
+                "vipusk": 18,
+                "vacansy": 33
+            },
+            81: {
+                "name": "Республика Ингушетия ",
+                "def_prof": 34,
+                "vipusk": 55,
+                "vacansy": 21
+            },
+            82: {
+                "name": "Республика Алтай",
+                "def_prof": -1,
+                "vipusk": 18,
+                "vacansy": 19
+            },
+            83: {
+                "name": "Еврейская автономная область",
+                "def_prof": 35,
+                "vipusk": 52,
+                "vacansy": 17
+            },
+            84: {
+                "name": "Севастопольский регион ",
+                "def_prof": 251,
+                "vipusk": 251,
+                "vacansy": 0
             }
         }
 
