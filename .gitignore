@@ -7,3 +7,7 @@ __pycache__
 migrations
 /__pycache__
 /migrations
+gunicorn_config.py
+/bin
+/analys/__pycache__
+/analys/analys/__pycache__
