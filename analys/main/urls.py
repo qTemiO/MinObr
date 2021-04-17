@@ -7,6 +7,8 @@ from .views import (
     VipuskProcentHeatMap,
 
     ProficitDeficitHeatMap,
+
+    RegionDetailed,
 )
 
 urlpatterns = [
@@ -16,4 +18,6 @@ urlpatterns = [
     path('heat/vipuskproc/', VipuskProcentHeatMap.as_view()),
 
     path('heat/tendency/', ProficitDeficitHeatMap.as_view()),
+    
+    path('regions/', RegionDetailed.as_view()),
 ]
