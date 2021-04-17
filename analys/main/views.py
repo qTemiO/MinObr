@@ -1,8 +1,9 @@
 from django.shortcuts import render
 
+from rest_framework import generics
+from rest_framework.renderers import JSONRenderer
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import generics
 
 """
 from .models import (
@@ -12,6 +13,8 @@ from .models import (
 class VacancyHeatMap(APIView):
     """Вакансии по регионам с hh"""
     
+    renderer_classes = [JSONRenderer]
+
     def get(self, request):
         data = {
             'Россия':104694,
@@ -105,6 +108,8 @@ class VacancyHeatMap(APIView):
 class VipuskHeatMap(APIView):
     """Список по выпускникам"""
 
+    renderer_classes = [JSONRenderer]
+    
     def get(self, request):
         data = {
             'Ростовская область': 1315,
