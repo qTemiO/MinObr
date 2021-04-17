@@ -495,6 +495,8 @@ class ProficitDeficitHeatMap(APIView):
 class RegionDetailed(APIView):
     """Детальный просмотр по региону"""
 
+    renderer_classes = [JSONRenderer]
+
     def get(self, request):
         data = {
             'Россия': {
@@ -597,5 +599,5 @@ class RegionDetailed(APIView):
             'Еврейская автономная область': {'def_prof': 35, 'vipusk': 52, 'vacansy': 17},
             'Севастопольский регион ': {'def_prof': 251, 'vipusk': 251, 'vacansy': 0}
         }
-        
+
         return Response(data=data)
